@@ -1,5 +1,5 @@
 // fixing annotation
-interface Vehicle{
+interface Reportable{
   // name:string,
   // year: Date,
   // broken: boolean;
@@ -18,12 +18,32 @@ const oldCivic ={
   }
 };
 
-
-const printVehicle = (vehicle: Vehicle): void=>{
-  console.log(` ${vehicle.summary()}`);
+const lambo = {
+  name: "tractor lambo",
+  year: 2023,
+  broken: false,
+  summary(): string{
+    return`Name: ${this.name}, which was released in ${this.year} and is in fresh condition broken: ${this.broken} `
+  }
 }
 
-printVehicle(oldCivic)
+
+const drink ={
+  color :" brown",
+  carbonated: true,
+  sugar: 40,
+  summary(): string{
+    return `My drink has ${this.sugar} gram of sugar`
+  }
+}
+
+const printSummary= (item: Reportable): void=>{
+  console.log(` ${item.summary()}`);
+};
+
+printSummary(oldCivic)
+printSummary(lambo)
+printSummary(drink)
 
 // Flexible types 
 const importantDates: (Date | String)[] = [new Date(), '2030-10-10']
